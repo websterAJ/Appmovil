@@ -21,7 +21,7 @@ const BellButton = ({ isWhite, style, navigation }) => (
       family="AntDesign"
       size={20}
       name="inbox"
-      color={nowTheme.COLORS[isWhite ? 'WHITE' : 'ICON']}
+      color='#fff'
     />
     <Block middle style={[styles.notify, { backgroundColor: nowTheme.COLORS[isWhite ? 'WHITE' : 'PRIMARY'] }]} />
   </TouchableOpacity>
@@ -33,7 +33,7 @@ const LogoutButton = ({ isWhite, style, navigation }) => (
       family="AntDesign"
       size={20}
       name="logout"
-      color={nowTheme.COLORS[isWhite ? 'WHITE' : 'ICON']}
+      color='#fff'
     />
   </TouchableOpacity>
 );
@@ -68,7 +68,7 @@ class Header extends React.Component {
     }
 
     switch (title) {
-      case 'Home':
+      case 'Inicio':
         return [
           <BellButton key="chat-home" navigation={navigation} isWhite={white} />,
           <LogoutButton key="basket-home" navigation={navigation} isWhite={white} />
@@ -160,13 +160,13 @@ class Header extends React.Component {
           <Block row middle style={{ marginLeft:10}}>
             <Icon
               size={30}
-              name="wallet"
+              name="qrcode"
               family="AntDesign"
               style={{ paddingRight: 8 }}
               color={nowTheme.COLORS.HEADER}
             />
             <Text style={{ fontFamily: 'montserrat-regular'}} size={16} style={styles.tabTitle}>
-              {optionRight || 'Transacciones'}
+              {optionRight || 'Cobrar'}
             </Text>
           </Block>
         </Button>
@@ -193,7 +193,6 @@ class Header extends React.Component {
     if (search || tabs || options) {
       return (
         <Block center>
-          {/*search ? this.renderSearch() : null*/}
           {options ? this.renderOptions() : null}
           {tabs ? this.renderTabs() : null}
         </Block>
@@ -234,15 +233,15 @@ class Header extends React.Component {
             <Icon
               name={back ? 'minimal-left2x' : 'align-left-22x'}
               family="NowExtra"
-              size={16}
+              size={20}
               onPress={this.handleLeftPress}
-              color={iconColor || (white ? nowTheme.COLORS.WHITE : nowTheme.COLORS.ICON)}
+              color="white"
             />
           }
           leftStyle={{ paddingVertical: 12, flex: 0.2 }}
           titleStyle={[
             styles.title,
-            { color: nowTheme.COLORS[white ? 'WHITE' : 'HEADER'] },
+            { color: '#fff'},
             titleColor && { color: titleColor }
           ]}
           {...props}
@@ -265,9 +264,11 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat-regular'
   },
   navbar: {
+    color:'#fff',
+    backgroundColor:'#122a51',
     paddingVertical: 0,
     paddingBottom: theme.SIZES.BASE * 1.5,
-    paddingTop: iPhoneX ? theme.SIZES.BASE * 4 : theme.SIZES.BASE,
+    paddingTop: iPhoneX ? theme.SIZES.BASE * 2 : theme.SIZES.BASE,
     zIndex: 5
   },
   shadow: {

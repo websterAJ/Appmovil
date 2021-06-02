@@ -107,13 +107,6 @@ export default class Onboarding extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  bg:{
-    resizeMode: "cover",
-    flex: 1,
-    justifyContent: "center",
-    height: height,
-    zIndex: 1 
-  },
   image: {
     flex: 1,
     resizeMode: "cover",

@@ -37,13 +37,14 @@ function CustomDrawerContent({
       forceInset={{ top: "always", horizontal: "never" }}
     >
       <Block style={styles.header}>
-        <Image style={styles.logo} source={Images.Logo} />
-        <Block right style={styles.headerIcon}>
+        <Image style={styles.logo} source={Images.Logotext} />
+        <Block right style={styles.headerIcon} middle>
           <Icon
             name="align-left-22x"
             family="NowExtra"
-            size={15}
+            size={20}
             color={"white"}
+            style={{justifyContent: "center"}}
           />
         </Block>
       </Block>
@@ -59,19 +60,7 @@ function CustomDrawerContent({
               />
             );
           })}
-          <Block flex style={{ marginTop: 24, marginVertical: 8, paddingHorizontal: 8 }}>
-          <Block
-            style={{ borderColor: 'white', width: '93%', borderWidth: StyleSheet.hairlineWidth, marginHorizontal: 10}}
-          />
-          <Text
-            color={nowTheme.COLORS.WHITE}
-            style={{ marginTop: 30, marginLeft: 20, marginBottom: 10, fontFamily: 'montserrat-regular', fontWeight: '300', fontSize: 12}}
-          >
-            DOCUMENTATION
-          </Text>
-        </Block>
-        <DrawerCustomItem title="GETTING STARTED" navigation={navigation}/>
-        <DrawerCustomItem title="LOGOUT" navigation={navigation}/>
+        <DrawerCustomItem title="Ayuda" navigation={navigation}/>
         </ScrollView>
       </Block>
     </Block>
@@ -80,7 +69,8 @@ function CustomDrawerContent({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor:'#122a51'
   },
   header: {
     paddingHorizontal: 28,
@@ -89,11 +79,17 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   headerIcon: {
-    marginTop: -20
+    marginTop: -20,
+    marginBottom:20,
+    textAlignVertical:'top',
+    justifyContent: "center",
   },
   logo: {
-    height: 40,
-    width: 37
+    height: 50,
+    width: 200,
+    justifyContent: "center",
+    backgroundColor:'#122a51',
+    alignItems: 'center',
   }
 });
 

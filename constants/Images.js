@@ -2,6 +2,8 @@
 const Onboarding = require('../assets/imgs/getPro-bg-1.png');
 const login = require('../assets/imgs/login.png');
 const Logo = require('../assets/icon.png');
+const Logotext = require('../assets/icon-text.png');
+const home = require('../assets/imgs/home.png');
 const ProfileBackground = require('../assets/imgs/bg5.png');
 const RegisterBackground = require('../assets/imgs/register-bg.png');
 const Pro = require('../assets/imgs/bg.png');
@@ -27,6 +29,8 @@ const Products = {
 };
 
 export default {
+  home,
+  Logotext,
   login,
   Onboarding,
   Logo,

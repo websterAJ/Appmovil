@@ -15,7 +15,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="app2x"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -25,7 +25,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="atom2x"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -35,7 +35,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="paper"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -45,7 +45,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="profile-circle"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -55,7 +55,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="badge2x"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -65,7 +65,7 @@ class DrawerItem extends React.Component {
           <Icon
             name="settings-gear-642x"
             family="NowExtra"
-            size={18}
+            size={19}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
             style={{ opacity: 0.5 }}
           />
@@ -84,21 +84,21 @@ class DrawerItem extends React.Component {
           <Icon
             name="spaceship2x"
             family="NowExtra"
-            size={18}
+            size={19}
             style={{ borderColor: "rgba(0,0,0,0.5)", opacity: 0.5 }}
             color={focused ? nowTheme.COLORS.PRIMARY : "white"}
           />
         );
-      case "LOGOUT":
-        return (
-          <Icon
-            name="share"
-            family="NowExtra"
-            size={18}
-            style={{ borderColor: "rgba(0,0,0,0.5)", opacity: 0.5 }}
-            color={focused ? nowTheme.COLORS.PRIMARY : "white"}
-          />
-        );
+        case "Ayuda":
+          return (
+            <Icon
+              name="help"
+              family="Entypo"
+              size={19}
+              style={{ borderColor: "rgba(0,0,0,0.5)", opacity: 0.5 }}
+              color={focused ? nowTheme.COLORS.PRIMARY : "white"}
+            />
+          );
       default:
         return null;
     }
