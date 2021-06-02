@@ -5,6 +5,7 @@ import {
   Dimensions
 } from "react-native";
 import { Block, Button, Text, theme } from "galio-framework";
+import SvgQRCode from 'react-native-qrcode-svg';
 //import QRCode from 'react-native-qrcode';
 
 const { height, width } = Dimensions.get("screen");
@@ -25,6 +26,7 @@ class Pagar extends React.Component {
       <Block flex style={styles.container}>
         <StatusBar hidden />
         <Block flex space="between" style={styles.padded}>
+          <SvgQRCode value={this.state.valueForQRCode} />
          {/*<QRCode
             value={this.state.valueForQRCode}
             //Setting the value of QRCode
