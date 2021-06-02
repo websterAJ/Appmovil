@@ -6,7 +6,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // screens
 import Home from '../screens/Home';
-import Pro from '../screens/Pro';
+import Cobrar from '../screens/Cobrar';
+import Pagar from '../screens/Pagar';
 import Profile from '../screens/Profile';
 import Register from '../screens/Register';
 import Components from '../screens/Components';
@@ -100,8 +101,8 @@ function ProfileStack(props) {
         }}
       />
       <Stack.Screen
-        name="Pro"
-        component={Pro}
+        name="Pagar"
+        component={Pagar}
         options={{
           header: ({ navigation, scene }) => (
             <Header
@@ -140,12 +141,29 @@ function HomeStack(props) {
         }}
       />
       <Stack.Screen
-        name="Pro"
-        component={Pro}
+        name="Pagar"
+        component={Pagar}
         options={{
           header: ({ navigation, scene }) => (
             <Header
-              title=""
+              title="Pagar"
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true
+        }}
+      />
+      <Stack.Screen
+        name="Cobrar"
+        component={Cobrar}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Cobrar"
               back
               white
               transparent

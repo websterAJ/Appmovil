@@ -4,9 +4,11 @@ import {
   Dimensions, 
   ScrollView, 
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  ToastAndroid
 } from "react-native";
 import { Block, theme, Text } from "galio-framework";
+import NumberFormat from 'react-number-format';
 
 import { Card, Button, Icon} from "../components";
 import axios from 'axios';
@@ -20,17 +22,44 @@ class Home extends React.Component {
     super(props);
     const navigation = props.navigate;
     this.state = {
-      account: new Array()
+      account: new Array(),
+      loading: true,
+      errorMessage: null,
     }
   }
+  async componentDidMount() {
+    const configAPi ={
+      method: 'post',
+      url: config.configApiv2.url+"cliente",
+      headers: config.configApiv2.header,
+      data:{
+         "cedula":'V25326051'
+      }
+    };
+    try {
+      let result = await axios(configAPi).then((result) => {
+        return result.data;
+      });
+      if(result.ok){
+        this.setState({
+          loading:false,
+          account: result.data.account
+        });
+        console.log(result.data.account);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  renderLoading(){
+    ToastAndroid.show('Cargando....', ToastAndroid.SHORT);
+  }
 
-  loadingAccount (){
+  renderCuentas(){
     const style = this.props;
     const cardContainer = [styles.card, styles.shadow, style];
-    const cuentas = this.state.account;
-    let CardAccount = [];
-    console.log('numero de cuentas: ', cuentas.length);
-    for(let i=0; i < cuentas.length;i++){
+    let CardAccount=[];
+    for(let i=0; i < this.state.account.length;i++){
       CardAccount.push(
         <Block flex>
           <Block card flex style={cardContainer}>
@@ -53,13 +82,14 @@ class Home extends React.Component {
                   style={{ fontFamily: 'montserrat-regular' }} 
                   size={16} 
                   style={styles.tabTitle}>
-                  USD
+                  { this.state.account[i].currency }
                 </Text>
+                
                 <Text
                   row 
                   style={styles.TextSaldo} 
                   size={16}>
-                  SALDO
+                  { this.state.account[i].ent }
                 </Text>
               </Block>
             </TouchableOpacity>
@@ -69,27 +99,11 @@ class Home extends React.Component {
     }
     return CardAccount;
   }
-
-  async componentDidMount() {
-    const configAPi ={
-      method: 'post',
-      url: config.configApiv2.url+"cliente",
-      headers: config.configApiv2.header,
-      data:{
-         "cedula":'V25326051'
-      }
-    };
-    const result = await axios(configAPi).then((result) => {
-      //console.log("result: ",result.data);
-      return result.data;
-    });
-    if(result.ok){
-      this.state.account.push(result.data.account);
-      console.log("cuentas: ", result.data.account);
-    }
-  }
   
-  render() {
+  render() {    
+    if(this.state.loading){
+      this.renderLoading();
+    }
     return (
       <ImageBackground source={Images.home} style={styles.bg}>
         <Block flex center style={styles.home}>
@@ -97,7 +111,7 @@ class Home extends React.Component {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.articles}
           >
-            {this.loadingAccount()}
+            {this.renderCuentas()}
           </ScrollView>
         </Block>
       </ImageBackground>
@@ -138,7 +152,7 @@ const styles = StyleSheet.create({
     right:-80
   },
   IconCuenta:{
-    left:-80
+    left:-50
   },
   tabTitle: {
     lineHeight: 19,

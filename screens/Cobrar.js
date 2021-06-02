@@ -13,7 +13,7 @@ const { height, width } = Dimensions.get("screen");
 import nowTheme from "../constants/Theme";
 import Images from "../constants/Images";
 
-class Pro extends React.Component {
+class Cobrar extends React.Component {
   render() {
     const { navigation } = this.props;
 
@@ -128,4 +128,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Pro;
+export default Cobrar;
