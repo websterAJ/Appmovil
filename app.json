@@ -2,12 +2,17 @@
   "expo": {
     "name": "Puropago",
     "slug": "Puropago",
-    "version": "1.0.0",
+    "privacy": "public",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.4.0",
     "orientation": "portrait",
-    "icon": "./src/assets/icon.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./src/assets/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#122a51"
     },
     "updates": {
@@ -16,16 +21,15 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#122a51"
+      }
+    },
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/icon.png"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "description": "Aplicacion movil financiera de la empresa puropago"
   }
 }
