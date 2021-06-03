@@ -22,70 +22,9 @@ class Cobrar extends React.Component {
         <StatusBar hidden />
         <Block flex center>
           <ImageBackground
-            source={Images.Pro}
+            source={Images.home}
             style={{ height, width, zIndex: 1 }}
           />
-        </Block>
-
-        <Block flex space="between" style={styles.padded}>
-
-          <Block middle row style={{ marginTop: -50, marginBottom: 30}}>
-            <Text
-              color="white"
-              size={16}
-              style={{ fontFamily: 'montserrat-regular' }}
-            >
-              Coded by
-            </Text>
-            <Image
-              source={Images.CreativeTimLogo}
-              style={{
-                height: 29,
-                width: 129,
-                marginLeft: theme.SIZES.BASE
-              }}
-            />
-          </Block>
-
-          <Block middle flex space="around" style={{ zIndex: 2 }}>
-            <Block center style={styles.title}>
-              <Block>
-                <Text color="white" size={60} style={styles.font}>
-                  Now UI
-                </Text>
-              </Block>
-              <Block row>
-                <Text middle color="white" size={34} style={styles.font}>
-                  React Native
-                </Text>
-                <Block middle style={styles.pro}>
-                  <Text size={14} color="white" style={styles.font}>
-                  PRO
-                </Text>
-                </Block>
-              </Block>
-            </Block>
-
-            <Block row middle style={{ marginTop: theme.SIZES.BASE * 4 }}>
-              <Image
-                source={Images.iOSLogo}
-                style={{ height: 38, width: 82, marginRight: theme.SIZES.BASE * 1.5 }} />
-              <Image
-                source={Images.androidLogo}
-                style={{ height: 38, width: 140 }} />
-            </Block>
-
-            <Block center>
-              <Button
-                style={styles.button}
-                color={nowTheme.COLORS.PRIMARY}
-                onPress={() => navigation.navigate("Home")}
-
-              >
-                BUY NOW
-              </Button>
-            </Block>
-          </Block>
         </Block>
       </Block>
     );

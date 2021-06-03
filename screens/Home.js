@@ -84,7 +84,6 @@ class Home extends React.Component {
                   style={styles.tabTitle}>
                   { this.state.account[i].currency }
                 </Text>
-                
                 <Text
                   row 
                   style={styles.TextSaldo} 

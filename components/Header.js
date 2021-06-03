@@ -156,7 +156,7 @@ class Header extends React.Component {
             </Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Cobrar')}>
           <Block row middle style={{ marginLeft:10}}>
             <Icon
               size={30}
