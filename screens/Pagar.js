@@ -2,15 +2,16 @@ import React from "react";
 import {
   StyleSheet,
   StatusBar,
-  Dimensions
+  Dimensions,
+  ImageBackground,
+  Image
 } from "react-native";
 import { Block, Button, Text, theme } from "galio-framework";
-import SvgQRCode from 'react-native-qrcode-svg';
-//import QRCode from 'react-native-qrcode';
+import QRCode from 'react-native-qrcode-svg';
 
 const { height, width } = Dimensions.get("screen");
 
-import nowTheme from "../constants/Theme";
+import {Images} from "../constants";
 
 class Pagar extends React.Component {
   constructor(props){
@@ -23,35 +24,35 @@ class Pagar extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Block flex style={styles.container}>
-        <StatusBar hidden />
-        <Block flex space="between" style={styles.padded}>
-          <SvgQRCode value={this.state.valueForQRCode} />
-         {/*<QRCode
-            value={this.state.valueForQRCode}
-            //Setting the value of QRCode
-            size={250}
-            //Size of QRCode
-            bgColor="#000"
-            //Backgroun Color of QRCode
-            fgColor="#fff"
-            //Front Color of QRCode
-         />*/}
+      <ImageBackground source={Images.home} style={styles.bg}>
+        <Block flex>
+          <StatusBar hidden />
+          <Block flex space="between" style={styles.padded}>
+            <Text style={styles.title}>Metodo de pago por codigo Qr</Text>
+            <QRCode
+                value={this.state.valueForQRCode}
+                size={200}
+            />
+          </Block>
         </Block>
-      </Block>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: theme.COLORS.WHITE
+  bg: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
   },
   padded: {
-    top: 270,
-    paddingHorizontal: theme.SIZES.BASE * 2,
+    top: 250,
+    marginLeft:theme.SIZES.BASE*4,
+    paddingHorizontal: theme.SIZES.BASE,
     position: 'absolute',
-    bottom: theme.SIZES.BASE,
+    justifyContent:'center',
+    alignItems:'center',
     zIndex: 2
   },
   button: {
@@ -61,21 +62,14 @@ const styles = StyleSheet.create({
     shadowOpacity: 0
   },
   title: {
-    marginTop: "-5%"
+    marginTop: "-5%",
+    marginBottom: 20,
+    fontFamily: 'montserrat-bold',
+    fontSize:16,
+    fontWeight:"bold"
   },
   subTitle: {
     marginTop: 20
-  },
-  pro: {
-    backgroundColor: nowTheme.COLORS.BLACK,
-    paddingHorizontal: 8,
-    marginLeft: 3,
-    borderRadius: 4,
-    height: 22,
-    marginTop: 0
-  },
-  font: {
-    fontFamily: 'montserrat-bold'
   }
 });
 

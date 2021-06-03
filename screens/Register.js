@@ -24,7 +24,7 @@ class Register extends React.Component {
       <DismissKeyboard>
         <Block flex middle>
           <ImageBackground
-            source={Images.RegisterBackground}
+            source={Images.login}
             style={styles.imageBackgroundContainer}
             imageStyle={styles.imageBackground}
           >
@@ -41,58 +41,9 @@ class Register extends React.Component {
                         color="#333"
                         size={24}
                       >
-                        Register
+                        Registro de usuarios
                       </Text>
                     </Block>
-
-                    <Block flex={0.5} row middle space="between" style={{ marginBottom: 18 }}>
-                      <GaButton
-                        round
-                        onlyIcon
-                        shadowless
-                        icon="twitter"
-                        iconFamily="Font-Awesome"
-                        iconColor={theme.COLORS.WHITE}
-                        iconSize={theme.SIZES.BASE * 1.625}
-                        color={nowTheme.COLORS.TWITTER}
-                        style={[styles.social, styles.shadow]}
-                      />
-
-                      <GaButton
-                        round
-                        onlyIcon
-                        shadowless
-                        icon="dribbble"
-                        iconFamily="Font-Awesome"
-                        iconColor={theme.COLORS.WHITE}
-                        iconSize={theme.SIZES.BASE * 1.625}
-                        color={nowTheme.COLORS.DRIBBBLE}
-                        style={[styles.social, styles.shadow]}
-                      />
-                      <GaButton
-                        round
-                        onlyIcon
-                        shadowless
-                        icon="facebook"
-                        iconFamily="Font-Awesome"
-                        iconColor={theme.COLORS.WHITE}
-                        iconSize={theme.SIZES.BASE * 1.625}
-                        color={nowTheme.COLORS.FACEBOOK}
-                        style={[styles.social, styles.shadow]}
-                      />
-                    </Block>
-                  </Block>
-                  <Block flex={0.1} middle>
-                    <Text
-                      style={{
-                        fontFamily: 'montserrat-regular',
-                        textAlign: 'center'
-                      }}
-                      muted
-                      size={16}
-                    >
-                      or be classical
-                    </Text>
                   </Block>
                   <Block flex={1} middle space="between">
                     <Block center flex={0.9}>
@@ -159,7 +110,7 @@ class Register extends React.Component {
                                 color: nowTheme.COLORS.HEADER,
                                 fontFamily: 'montserrat-regular'
                               }}
-                              label="I agree to the terms and conditions."
+                              label="Estoy de acuerdo con los términos y condiciones."
                             />
                           </Block>
                         </Block>
@@ -170,7 +121,7 @@ class Register extends React.Component {
                               size={14}
                               color={nowTheme.COLORS.WHITE}
                             >
-                              Get Started
+                              Registrar
                             </Text>
                           </Button>
                         </Block>

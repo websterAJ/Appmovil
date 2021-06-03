@@ -60,19 +60,11 @@ function ArticlesStack(props) {
 
 function AccountStack(props) {
   return (
-    <Stack.Navigator initialRouteName="Account" mode="card" headerMode="screen">
+    <Stack.Navigator initialRouteName="Account" mode="card" headerMode="none">
       <Stack.Screen
         name="Account"
         component={Register}
         options={{
-          header: ({ navigation, scene }) => (
-            <Header 
-              transparent
-              title="Create Account"
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
           headerTransparent: true
         }}
       />
@@ -230,6 +222,7 @@ export default function OnboardingStack(props) {
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
+      <Stack.Screen name="Account" component={AccountStack} />
     </Stack.Navigator>
   );
 }

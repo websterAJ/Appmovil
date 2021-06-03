@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-//import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { 
   ImageBackground,
   StyleSheet,
@@ -50,12 +50,11 @@ export default class Onboarding extends React.Component {
     if(username != '' && password != ''){
       this.loading();
       const result = await axios(configAPi).then((result) => {
-        console.log("result: ",result.data);
         return result.data;
       });
       if(result.ok){
-        //AsyncStorage.setItem("Usertoken",data.token);
-        //AsyncStorage.setItem("User",data.user.cedula);
+        AsyncStorage.setItem("Usertoken",data.token);
+        AsyncStorage.setItem("User",data.user.cedula);
         this.props.navigation.navigate('App');
       }else{
           Alert.alert(result.error);
@@ -97,8 +96,8 @@ export default class Onboarding extends React.Component {
                 Inicio
               </Text>
             </Button>
-            <Text style={styles.recuperar} onPress={() => this.props.replace('ResetPasswordScreen')}>Recuperar contraseña</Text>
-            <Text style={styles.registro} onPress={() => this.props.replace('RegisterScreen')}>Registrarme</Text>
+            <Text style={styles.recuperar} onPress={() => this.props.navigation.navigate('ResetPasswordScreen')}>Recuperar contraseña</Text>
+            <Text style={styles.registro} onPress={() => this.props.navigation.navigate('Account')}>Registrarme</Text>
             <Text style={styles.text}>Desarrollado por puropago</Text>
           </View>
         </SafeAreaView>

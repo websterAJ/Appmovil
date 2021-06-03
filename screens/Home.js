@@ -61,7 +61,7 @@ class Home extends React.Component {
     let CardAccount=[];
     for(let i=0; i < this.state.account.length;i++){
       CardAccount.push(
-        <Block flex>
+        <Block flex key={this.state.account[i].id}>
           <Block card flex style={cardContainer}>
             <TouchableOpacity
               middle
@@ -89,7 +89,7 @@ class Home extends React.Component {
                   row 
                   style={styles.TextSaldo} 
                   size={16}>
-                  { this.state.account[i].ent }
+                  { this.state.account[i].sal }
                 </Text>
               </Block>
             </TouchableOpacity>
