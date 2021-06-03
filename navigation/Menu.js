@@ -28,7 +28,6 @@ function CustomDrawerContent({
     "Components",
     "Articles",
     "Profile",
-    "Account",
     "Settings"
   ];
   return (

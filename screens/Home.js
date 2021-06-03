@@ -8,7 +8,7 @@ import {
   ToastAndroid
 } from "react-native";
 import { Block, theme, Text } from "galio-framework";
-import NumberFormat from 'react-number-format';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Card, Button, Icon} from "../components";
 import axios from 'axios';
@@ -33,7 +33,7 @@ class Home extends React.Component {
       url: config.configApiv2.url+"cliente",
       headers: config.configApiv2.header,
       data:{
-         "cedula":'V25326051'
+         "cedula": await AsyncStorage.getItem("User")
       }
     };
     try {
