@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#122a51"
-      }
+      },
+      "package": "puropago.apk"
     },
     "ios": {
       "supportsTablet": true
