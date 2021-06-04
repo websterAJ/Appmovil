@@ -45,7 +45,7 @@ class Home extends React.Component {
           loading:false,
           account: result.data.account
         });
-        console.log(result.data.account);
+        AsyncStorage.setItem("Useraccount",JSON.stringify(result.data.account));
       }
     } catch (e) {
       console.log(e);
@@ -88,7 +88,7 @@ class Home extends React.Component {
                   row 
                   style={styles.TextSaldo} 
                   size={16}>
-                  { this.state.account[i].sal }
+                  { this.state.account[i].ent }
                 </Text>
               </Block>
             </TouchableOpacity>

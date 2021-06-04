@@ -52,7 +52,6 @@ export default class Onboarding extends React.Component {
       const result = await axios(configAPi).then((result) => {
         return result.data;
       });
-      console.log(result);
       if(result.ok){
         AsyncStorage.setItem("Usertoken",result.token);
         AsyncStorage.setItem("User",result.user.cedula);

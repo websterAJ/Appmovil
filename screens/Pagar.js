@@ -3,22 +3,52 @@ import {
   StyleSheet,
   StatusBar,
   Dimensions,
-  ImageBackground,
-  Image
+  ImageBackground
 } from "react-native";
-import { Block, Button, Text, theme } from "galio-framework";
+import { Block, Text, theme } from "galio-framework";
 import QRCode from 'react-native-qrcode-svg';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 const { height, width } = Dimensions.get("screen");
 
-import {Images} from "../constants";
+import {Images,config} from "../constants";
 
 class Pagar extends React.Component {
   constructor(props){
     super(props);
     const navigation = props.navigate;
     this.state = {
-      valueForQRCode: 'V25326051',
+      usuario: null,
+      saldo: null,
+      moneda: null
+    }
+  }
+
+  async componentDidMount() {
+    let usuario = await AsyncStorage.getItem("User");
+    const configAPi ={
+      method: 'post',
+      url: config.configApiv2.url+"get_saldo",
+      headers: config.configApiv2.header,
+      data:{
+         "usuario": usuario,
+         "token": await AsyncStorage.getItem("Usertoken")
+      }
+    };
+    try {
+      let result = await axios(configAPi).then((result) => {
+        return result.data;
+      });
+      console.log(result);
+      if(result.ok){
+        this.setState({usuario:usuario});
+        this.setState({saldo:result.saldo});
+        this.setState({moneda:result.moneda});
+        
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
   render() {
@@ -30,7 +60,7 @@ class Pagar extends React.Component {
           <Block flex space="between" style={styles.padded}>
             <Text style={styles.title}>Metodo de pago por codigo Qr</Text>
             <QRCode
-                value={this.state.valueForQRCode}
+                value={"usuario:"+this.state.usuario+";saldo:"+this.state.saldo+";moneda:"+this.state.moneda+";"}
                 size={200}
             />
           </Block>

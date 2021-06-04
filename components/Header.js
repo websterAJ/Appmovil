@@ -28,7 +28,7 @@ const BellButton = ({ isWhite, style, navigation }) => (
 );
 
 const LogoutButton = ({ isWhite, style, navigation }) => (
-  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('Pro')}>
+  <TouchableOpacity style={[styles.button, style]} onPress={() => navigation.navigate('App')}>
     <Icon
       family="AntDesign"
       size={20}
@@ -141,7 +141,7 @@ class Header extends React.Component {
         <Button
           shadowless
           style={[styles.tab, styles.divider]}
-          onPress={() => console.log(navigation.navigate('Pagar'))}
+          onPress={() => navigation.navigate('Pagar')}
         >
           <Block row middle>
             <Icon
