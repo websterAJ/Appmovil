@@ -140,13 +140,11 @@ function HomeStack(props) {
             <Header
               title="Pagar"
               back
-              white
-              transparent
               navigation={navigation}
               scene={scene}
             />
           ),
-          headerTransparent: true
+          cardStyle: { backgroundColor: "#FFFFFF" }
         }}
       />
       <Stack.Screen

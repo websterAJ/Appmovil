@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   padded: {
-    top: 250,
+    top: 200,
     marginLeft:theme.SIZES.BASE*4,
     paddingHorizontal: theme.SIZES.BASE,
     position: 'absolute',
